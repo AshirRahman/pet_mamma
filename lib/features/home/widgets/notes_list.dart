@@ -35,7 +35,7 @@ class NotesList extends StatelessWidget {
         valueListenable: isExpanded,
         builder: (context, expanded, _) {
           return AnimatedContainer(
-            duration: const Duration(milliseconds: 20),
+            duration: const Duration(milliseconds: 5),
             margin: const EdgeInsets.symmetric(vertical: 6),
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
@@ -87,16 +87,6 @@ class NotesList extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 24,
-                      width: 16,
-                      child: Icon(
-                        Icons.note,
-                        color: Colors.blueAccent,
-                        size: 20,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
                     Expanded(
                       child: AnimatedCrossFade(
                         duration: const Duration(milliseconds: 200),
