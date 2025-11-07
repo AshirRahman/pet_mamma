@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "911870191396",
+    "project_id": "petmamma-6a076",
+    "storage_bucket": "petmamma-6a076.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911870191396:android:a0347052b5d1923bba35b1",
+        "android_client_info": {
+          "package_name": "com.example.pet_mamma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911870191396-to0ch0umhiascc9qqkc003mude39t8qb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pet_mamma",
+            "certificate_hash": "1494de2b55dc757b2f6993c42a83ff75e77ee754"
+          }
+        },
+        {
+          "client_id": "911870191396-i9i3l1enn19mjsgkj897cu98v5lg1f9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd5cN6c2FB2TlkMhfvcA5MdGzsz_2fBjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911870191396-i9i3l1enn19mjsgkj897cu98v5lg1f9n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "911870191396-mts5ipqk7i3s8eq3mr058ldel6sdncpk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.petMamma"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
