@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import '../model/note_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pet_mamma/features/home/widgets/notes_list.dart';
@@ -85,7 +85,7 @@ class HomeScreen extends StatelessWidget {
 
                     /// Notes List
                     Expanded(
-                      child: StreamBuilder<QuerySnapshot>(
+                      child: StreamBuilder<List<NoteModel>>(
                         stream: controller.userNotes,
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
@@ -104,8 +104,8 @@ class HomeScreen extends StatelessWidget {
                             );
                           }
 
-                          if (!snapshot.hasData ||
-                              snapshot.data!.docs.isEmpty) {
+                          final notes = snapshot.data ?? [];
+                          if (notes.isEmpty) {
                             return Center(
                               child: Text(
                                 "No notes added yet.",
@@ -113,8 +113,6 @@ class HomeScreen extends StatelessWidget {
                               ),
                             );
                           }
-
-                          final notes = snapshot.data!.docs;
 
                           return ListView.builder(
                             itemCount: notes.length,

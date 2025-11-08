@@ -1,11 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import '../../../core/common/styles/global_text_style.dart';
 
+import '../model/note_model.dart';
+
 class NotesList extends StatelessWidget {
-  final QueryDocumentSnapshot note;
+  final NoteModel note;
   final VoidCallback onDelete;
 
   const NotesList({super.key, required this.note, required this.onDelete});
@@ -14,10 +15,8 @@ class NotesList extends StatelessWidget {
   Widget build(BuildContext context) {
     final ValueNotifier<bool> isExpanded = ValueNotifier(false);
 
-    final noteText = note['note'] ?? '';
-    final createdAt = note['createdAt'] != null
-        ? (note['createdAt'] as Timestamp).toDate()
-        : null;
+    final noteText = note.note;
+    final createdAt = note.createdAt;
     final formattedDate = createdAt != null
         ? DateFormat('dd MMM yyyy, hh:mm a').format(createdAt)
         : 'N/A';
