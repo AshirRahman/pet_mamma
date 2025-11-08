@@ -82,12 +82,10 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(height: 28.h),
 
                     /// Sign Up Button
-                    controller.isLoading
-                        ? const CircularProgressIndicator()
-                        : CustomButton(
-                            text: "Sign Up",
-                            onTap: () => controller.signupUser(context),
-                          ),
+                    CustomButton(
+                      text: "Sign Up",
+                      onTap: () => controller.signupUser(context),
+                    ),
 
                     const SizedBox(height: 28),
 
