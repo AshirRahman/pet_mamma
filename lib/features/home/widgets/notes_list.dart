@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import '../../../core/common/styles/global_text_style.dart';
 
@@ -27,8 +28,8 @@ class NotesList extends StatelessWidget {
       background: Container(
         color: Colors.redAccent,
         alignment: Alignment.centerRight,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: const Icon(Icons.delete, color: Colors.white),
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        child: Icon(Icons.delete, color: Colors.white, size: 24.sp),
       ),
       onDismissed: (_) => onDelete(),
       child: ValueListenableBuilder<bool>(
@@ -36,11 +37,11 @@ class NotesList extends StatelessWidget {
         builder: (context, expanded, _) {
           return AnimatedContainer(
             duration: const Duration(milliseconds: 5),
-            margin: const EdgeInsets.symmetric(vertical: 6),
-            padding: const EdgeInsets.all(14),
+            margin: EdgeInsets.symmetric(vertical: 6.h),
+            padding: EdgeInsets.all(14.w),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               border: Border.all(color: Colors.grey.shade300),
             ),
             child: Column(
@@ -64,16 +65,18 @@ class NotesList extends StatelessWidget {
                                 ? Icons.expand_less_rounded
                                 : Icons.expand_more_rounded,
                             color: Colors.blueAccent,
+                            size: 20.sp,
                           ),
                         ),
-                        const SizedBox(width: 8),
+                        SizedBox(width: 8.w),
 
                         /// Delete Button
                         GestureDetector(
                           onTap: onDelete,
-                          child: const Icon(
+                          child: Icon(
                             Icons.delete,
                             color: Colors.redAccent,
+                            size: 20.sp,
                           ),
                         ),
                       ],
@@ -81,7 +84,7 @@ class NotesList extends StatelessWidget {
                   ],
                 ),
 
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
 
                 /// Note Content
                 Row(
@@ -95,17 +98,17 @@ class NotesList extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: getTextStyle(
-                            fontSize: 15,
+                            fontSize: 15.sp,
                             color: Colors.black87,
-                            lineHeight: 1.4 * 15,
+                            lineHeight: 1.4 * 15.sp,
                           ),
                         ),
                         secondChild: Text(
                           noteText,
                           style: getTextStyle(
-                            fontSize: 15,
+                            fontSize: 15.sp,
                             color: Colors.black87,
-                            lineHeight: 1.4 * 15,
+                            lineHeight: 1.4 * 15.sp,
                           ),
                         ),
                         crossFadeState: expanded

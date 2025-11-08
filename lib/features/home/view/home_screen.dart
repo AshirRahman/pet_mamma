@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pet_mamma/features/home/widgets/notes_list.dart';
 import 'package:pet_mamma/features/home/widgets/profile_section.dart';
 import 'package:provider/provider.dart';
@@ -22,88 +23,114 @@ class HomeScreen extends StatelessWidget {
 
           return Scaffold(
             backgroundColor: Colors.white,
-            appBar: AppBar(
-              backgroundColor: Colors.white,
-              title: Text(
-                "My Notes",
-                style: getTextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-              ),
-              centerTitle: true,
-              actions: [
-                IconButton(
-                  onPressed: () => controller.signOut(context),
-                  icon: const Icon(Icons.logout, color: Colors.redAccent),
-                ),
-              ],
-            ),
-            body: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  /// Profile Section
-                  ProfileSection(
-                    name: controller.userName,
-                    email: controller.userEmail,
-                    photoUrl: controller.userPhoto,
-                    joinedDate: joined,
-                  ),
-
-                  const SizedBox(height: 24),
-
-                  /// Add Note
-                  NoteInputField(
-                    controller: controller.noteController,
-                    onSend: controller.addNote,
-                  ),
-
-                  const SizedBox(height: 24),
-
-                  /// Notes List
-                  Expanded(
-                    child: StreamBuilder<QuerySnapshot>(
-                      stream: controller.userNotes,
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-
-                        if (snapshot.hasError) {
-                          return Center(
+            body: SafeArea(
+              child: Padding(
+                padding: EdgeInsets.all(16.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    /// Top Header
+                    Row(
+                      children: [
+                        Expanded(child: SizedBox()),
+                        Expanded(
+                          flex: 2,
+                          child: Center(
                             child: Text(
-                              "Unable to load notes. Try again.",
-                              style: getTextStyle(),
+                              "My Notes",
+                              style: getTextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 22.sp,
+                              ),
                             ),
-                          );
-                        }
-
-                        if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-                          return Center(
-                            child: Text(
-                              "No notes added yet.",
-                              style: getTextStyle(),
+                          ),
+                        ),
+                        Expanded(
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: IconButton(
+                              onPressed: () => controller.signOut(context),
+                              icon: Icon(
+                                Icons.logout_rounded,
+                                color: Colors.redAccent,
+                                size: 26.sp,
+                              ),
                             ),
-                          );
-                        }
-
-                        final notes = snapshot.data!.docs;
-
-                        return ListView.builder(
-                          itemCount: notes.length,
-                          itemBuilder: (context, index) {
-                            return NotesList(
-                              note: notes[index],
-                              onDelete: () =>
-                                  controller.deleteNote(notes[index].id),
-                            );
-                          },
-                        );
-                      },
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
+
+                    SizedBox(height: 12.h),
+
+                    /// Profile Section
+                    Center(
+                      child: ProfileSection(
+                        name: controller.userName,
+                        email: controller.userEmail,
+                        photoUrl: controller.userPhoto,
+                        joinedDate: joined,
+                      ),
+                    ),
+
+                    SizedBox(height: 24.h),
+
+                    /// Add Note Input
+                    NoteInputField(
+                      controller: controller.noteController,
+                      onSend: controller.addNote,
+                    ),
+
+                    SizedBox(height: 24.h),
+
+                    /// Notes List
+                    Expanded(
+                      child: StreamBuilder<QuerySnapshot>(
+                        stream: controller.userNotes,
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+
+                          if (snapshot.hasError) {
+                            return Center(
+                              child: Text(
+                                "Unable to load notes. Try again.",
+                                style: getTextStyle(),
+                              ),
+                            );
+                          }
+
+                          if (!snapshot.hasData ||
+                              snapshot.data!.docs.isEmpty) {
+                            return Center(
+                              child: Text(
+                                "No notes added yet.",
+                                style: getTextStyle(),
+                              ),
+                            );
+                          }
+
+                          final notes = snapshot.data!.docs;
+
+                          return ListView.builder(
+                            itemCount: notes.length,
+                            itemBuilder: (context, index) {
+                              return NotesList(
+                                note: notes[index],
+                                onDelete: () =>
+                                    controller.deleteNote(notes[index].id),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );

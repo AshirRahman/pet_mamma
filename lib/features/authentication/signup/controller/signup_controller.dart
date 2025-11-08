@@ -59,7 +59,7 @@ class SignupController with ChangeNotifier {
       );
       await userCredential.user?.updateDisplayName(name);
       await userCredential.user?.reload();
-      EasyLoading.showSuccess("✅ Account created!");
+      EasyLoading.showSuccess("Account created!");
       await Future.delayed(const Duration(seconds: 1));
 
       if (context.mounted) {
@@ -101,7 +101,7 @@ class SignupController with ChangeNotifier {
       final userCredential = await _auth.signInWithCredential(credential);
       final user = userCredential.user;
 
-      debugPrint("✅ Google sign-in successful");
+      debugPrint("Google sign-in successful");
       debugPrint("Name: ${user?.displayName}");
       debugPrint("Email: ${user?.email}");
       debugPrint("Photo: ${user?.photoURL}");

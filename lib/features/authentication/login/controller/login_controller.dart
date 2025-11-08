@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -60,6 +62,7 @@ class LoginController with ChangeNotifier {
         EasyLoading.showError("Wrong password.");
       } else {
         EasyLoading.showError("Login failed: ${e.message}");
+        debugPrint("Login failed: ${e.message}");
       }
     } finally {
       _setLoading(false);
@@ -110,6 +113,7 @@ class LoginController with ChangeNotifier {
       EasyLoading.showError("Firebase error: ${e.message}");
     } catch (e) {
       EasyLoading.showError("Google sign-in failed: $e");
+      log("Google sign-in failed: $e");
     } finally {
       _setLoading(false);
       EasyLoading.dismiss();

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/common/widgets/custom_button.dart';
 import '../../../../core/common/widgets/custom_text_field.dart';
-import '../../../../core/utils/icons_path.dart' show IconsPath;
+import '../../../../core/utils/icons_path.dart';
 import 'package:pet_mamma/core/common/styles/global_text_style.dart';
 import '../controller/signup_controller.dart';
 
@@ -19,28 +20,25 @@ class SignupScreen extends StatelessWidget {
             backgroundColor: Colors.white,
             body: SafeArea(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 40,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 40.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       "Create Account",
                       style: getTextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 28.sp,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    SizedBox(height: 30.h),
 
                     /// Name
                     CustomTextField(
                       controller: controller.nameController,
                       hintText: "Full Name",
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
 
                     /// Email
                     CustomTextField(
@@ -48,7 +46,7 @@ class SignupScreen extends StatelessWidget {
                       hintText: "Email Address",
                       keyboardType: TextInputType.emailAddress,
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
 
                     /// Password
                     CustomTextField(
@@ -64,7 +62,7 @@ class SignupScreen extends StatelessWidget {
                         onPressed: controller.togglePasswordVisibility,
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
 
                     /// Confirm Password
                     CustomTextField(
@@ -81,7 +79,7 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ),
 
-                    const SizedBox(height: 28),
+                    SizedBox(height: 28.h),
 
                     /// Sign Up Button
                     controller.isLoading
@@ -98,7 +96,7 @@ class SignupScreen extends StatelessWidget {
                       children: [
                         Expanded(child: Divider(color: Colors.grey.shade300)),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
                           child: Text(
                             "or",
                             style: getTextStyle(color: Colors.grey),
@@ -108,7 +106,7 @@ class SignupScreen extends StatelessWidget {
                       ],
                     ),
 
-                    const SizedBox(height: 28),
+                    SizedBox(height: 28.h),
 
                     /// Google SignUp Button
                     CustomButton(
@@ -116,13 +114,13 @@ class SignupScreen extends StatelessWidget {
                       isOutlined: true,
                       icon: Image.asset(
                         IconsPath.google,
-                        height: 24,
-                        width: 24,
+                        height: 16.h,
+                        width: 16.w,
                       ),
                       onTap: () => controller.signUpWithGoogle(context),
                     ),
 
-                    const SizedBox(height: 30),
+                    SizedBox(height: 30.h),
 
                     /// Bottom text
                     Row(

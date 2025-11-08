@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/common/styles/global_text_style.dart';
 
 class NoteInputField extends StatelessWidget {
@@ -19,9 +20,10 @@ class NoteInputField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: 'Write a new note...',
         hintStyle: getTextStyle(color: Colors.grey),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r)),
+        contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.w),
         suffixIcon: IconButton(
-          icon: const Icon(Icons.send, color: Colors.blueAccent),
+          icon: Icon(Icons.send, color: Colors.blueAccent, size: 20.sp),
           onPressed: onSend,
         ),
       ),

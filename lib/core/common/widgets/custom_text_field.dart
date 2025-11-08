@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../common/styles/global_text_style.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -28,24 +29,21 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
         hintStyle: getTextStyle(color: Colors.grey),
         filled: true,
-        fillColor: Colors.grey[100],
+        fillColor: Colors.white,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           borderSide: const BorderSide(color: Colors.grey),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           borderSide: const BorderSide(color: Colors.grey),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           borderSide: const BorderSide(color: Colors.blue, width: 1.2),
         ),
         suffixIcon: suffixIcon,
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 16,
-          horizontal: 14,
-        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 14.w),
       ),
     );
   }

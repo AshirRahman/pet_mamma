@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "911870191396-nctfgqakkg2lt16beqgcho7kh5n2bvio.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pet_mamma",
+            "certificate_hash": "303ae80160f9d91400ff26aa7a10e99b23b0e061"
+          }
+        },
+        {
           "client_id": "911870191396-to0ch0umhiascc9qqkc003mude39t8qb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

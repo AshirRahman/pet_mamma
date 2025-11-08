@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/common/widgets/custom_button.dart';
 import '../../../../core/common/widgets/custom_text_field.dart';
@@ -19,21 +20,18 @@ class LoginScreen extends StatelessWidget {
             backgroundColor: Colors.white,
             body: SafeArea(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 40,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 40.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       "Log In",
                       style: getTextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.w400,
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 40),
+                    SizedBox(height: 40.h),
 
                     /// Email
                     CustomTextField(
@@ -41,7 +39,7 @@ class LoginScreen extends StatelessWidget {
                       hintText: "Email Address",
                       keyboardType: TextInputType.emailAddress,
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
 
                     /// Password
                     CustomTextField(
@@ -58,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
 
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8.h),
 
                     Align(
                       alignment: Alignment.centerRight,
@@ -67,12 +65,15 @@ class LoginScreen extends StatelessWidget {
                             controller.navigateToForgotPassword(context),
                         child: Text(
                           "Forget Password?",
-                          style: getTextStyle(color: Colors.grey, fontSize: 13),
+                          style: getTextStyle(
+                            color: Colors.grey,
+                            fontSize: 12.sp,
+                          ),
                         ),
                       ),
                     ),
 
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8.h),
 
                     /// Login Button
                     CustomButton(
@@ -80,14 +81,14 @@ class LoginScreen extends StatelessWidget {
                       onTap: () => controller.loginUser(context),
                     ),
 
-                    const SizedBox(height: 28),
+                    SizedBox(height: 28.h),
 
                     /// OR/Divider
                     Row(
                       children: [
                         Expanded(child: Divider(color: Colors.grey.shade300)),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
                           child: Text(
                             "or",
                             style: getTextStyle(color: Colors.grey),
@@ -97,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
 
-                    const SizedBox(height: 28),
+                    SizedBox(height: 28.h),
 
                     /// Google Button
                     CustomButton(
@@ -105,15 +106,15 @@ class LoginScreen extends StatelessWidget {
                       isOutlined: true,
                       icon: Image.asset(
                         IconsPath.google,
-                        height: 24,
-                        width: 24,
+                        height: 16.h,
+                        width: 16.w,
                       ),
                       onTap: () => controller.loginWithGoogle(context),
                     ),
 
-                    const SizedBox(height: 28),
+                    SizedBox(height: 28.h),
 
-                    /// Bottom Sign-up Text
+                    /// Bottom Sign-up Text Button
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
