@@ -98,17 +98,17 @@ class NotesList extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: getTextStyle(
-                            fontSize: 15.sp,
+                            fontSize: 14.sp,
                             color: Colors.black87,
-                            lineHeight: 1.4 * 15.sp,
+                            lineHeight: 1.4 * 14.sp,
                           ),
                         ),
                         secondChild: Text(
                           noteText,
                           style: getTextStyle(
-                            fontSize: 15.sp,
+                            fontSize: 14.sp,
                             color: Colors.black87,
-                            lineHeight: 1.4 * 15.sp,
+                            lineHeight: 1.4 * 14.sp,
                           ),
                         ),
                         crossFadeState: expanded
