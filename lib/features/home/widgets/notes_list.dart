@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import '../../../core/common/styles/global_text_style.dart';
-
 import '../model/note_model.dart';
 
 class NotesList extends StatelessWidget {

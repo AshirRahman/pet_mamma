@@ -22,15 +22,26 @@ class HomeController extends ChangeNotifier {
     final uid = _auth.currentUser?.uid;
     if (uid == null) return Stream.value([]);
 
-    return _firestore
+    // return _firestore
+    //     .collection('notes')
+    //     .where('uid', isEqualTo: uid)
+    //     .orderBy('createdAt', descending: true)
+    //     .snapshots()
+    //     .map(
+    //       (snapshot) =>
+    //           snapshot.docs.map((doc) => NoteModel.fromDocument(doc)).toList(),
+    //     );
+
+    final response = _firestore
         .collection('notes')
         .where('uid', isEqualTo: uid)
         .orderBy('createdAt', descending: true)
-        .snapshots()
-        .map(
-          (snapshot) =>
-              snapshot.docs.map((doc) => NoteModel.fromDocument(doc)).toList(),
-        );
+        .snapshots();
+
+    return response.map(
+      (snapshot) =>
+          snapshot.docs.map((doc) => NoteModel.fromDocument(doc)).toList(),
+    );
   }
 
   Future<void> addNote() async {

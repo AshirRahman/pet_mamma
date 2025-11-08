@@ -21,6 +21,10 @@ class NoteInputField extends StatelessWidget {
         hintText: 'Write a new note...',
         hintStyle: getTextStyle(color: Colors.grey),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r)),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide: const BorderSide(color: Colors.blue),
+        ),
         contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.w),
         suffixIcon: IconButton(
           icon: Icon(Icons.send, color: Colors.blueAccent, size: 20.sp),
