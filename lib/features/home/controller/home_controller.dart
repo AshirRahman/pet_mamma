@@ -17,7 +17,7 @@ class HomeController extends ChangeNotifier {
   String? get userPhoto => currentUser?.photoURL;
   DateTime? get createdAt => currentUser?.metadata.creationTime;
 
-  /// Stream of notes as List<NoteModel>
+  /// Get Notes
   Stream<List<NoteModel>> get userNotes {
     final uid = _auth.currentUser?.uid;
     if (uid == null) return Stream.value([]);
@@ -34,6 +34,7 @@ class HomeController extends ChangeNotifier {
     );
   }
 
+  /// Add Notes
   Future<void> addNote() async {
     final uid = _auth.currentUser?.uid;
     final text = noteController.text.trim();
